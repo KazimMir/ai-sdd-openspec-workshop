@@ -1,0 +1,18 @@
+{
+  "name": "bug-tracker-workshop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bug Tracker POC for an OpenSpec SDD workshop",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,magenta \"npm:dev -w backend\" \"npm:dev -w frontend\"",
+    "test": "npm run test -w backend && npm run test -w frontend",
+    "build": "npm run build -w backend && npm run build -w frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
